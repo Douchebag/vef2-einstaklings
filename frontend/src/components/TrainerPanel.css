@@ -1,0 +1,19 @@
+.trainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 40px 16px;
+}
+
+.new-hand-btn {
+  padding: 10px 28px;
+  background: rgba(200, 32, 0, 0.15);
+  color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(200, 32, 0, 0.3);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}

@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Scenario {
+  id        Int      @id @default(autoincrement())
+  holeCards String[]
+  flop      String[]
+  pot       Int
+  bet       Int
+  createdAt DateTime @default(now())
+
+  attempts Attempt[]
+}
+
+model Attempt {
+  id          Int      @id @default(autoincrement())
+  scenarioId  Int
+  scenario    Scenario @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
+  decision    String
+  estimatedEq Float
+  requiredEq  Float
+  correct     Boolean
+  createdAt   DateTime @default(now())
+}
