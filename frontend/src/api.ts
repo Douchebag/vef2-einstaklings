@@ -8,12 +8,13 @@ export async function fetchScenario(): Promise<Scenario> {
 
 export async function submitAttempt(
   scenarioId: number,
+  street: "flop" | "turn",
   decision: "fold" | "call"
 ): Promise<AttemptResult> {
   const res = await fetch("/api/attempt", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ scenarioId, decision }),
+    body: JSON.stringify({ scenarioId, street, decision }),
   });
   if (!res.ok) throw new Error("Failed to submit attempt");
   return res.json() as Promise<AttemptResult>;

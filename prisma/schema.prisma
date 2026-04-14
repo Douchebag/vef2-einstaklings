@@ -11,8 +11,10 @@ model Scenario {
   id        Int      @id @default(autoincrement())
   holeCards String[]
   flop      String[]
+  turn      String
   pot       Int
   bet       Int
+  turnBet   Int
   createdAt DateTime @default(now())
 
   attempts Attempt[]
@@ -22,6 +24,7 @@ model Attempt {
   id          Int      @id @default(autoincrement())
   scenarioId  Int
   scenario    Scenario @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
+  street      String
   decision    String
   estimatedEq Float
   requiredEq  Float

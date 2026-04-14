@@ -4,16 +4,263 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  gap: 28px;
   padding: 40px 16px;
 }
 
+/* ── Streak ── */
+.streak {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 18px;
+  background: rgba(200, 32, 0, 0.12);
+  border: 1px solid rgba(200, 32, 0, 0.35);
+  border-radius: 20px;
+}
+
+.streak-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+}
+
+.streak-count {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ff6040;
+}
+
+/* ── Board ── */
+.board {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.cards {
+  display: flex;
+  gap: 8px;
+}
+
+/* ── Card tile ── */
+.card-tile {
+  width: 56px;
+  height: 80px;
+  background: #fafafa;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.card-tile.red .card-rank,
+.card-tile.red .card-suit {
+  color: #c82000;
+}
+
+.card-tile.black .card-rank,
+.card-tile.black .card-suit {
+  color: #111;
+}
+
+.card-tile.face-down {
+  background: #1e3a5f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card-rank {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.card-suit {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* ── Pot info ── */
+.pot-info {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 28px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+}
+
+.pot-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.pot-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.pot-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #e0e0e0;
+}
+
+.pot-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ── Decision buttons ── */
+.decision-btns {
+  display: flex;
+  gap: 16px;
+}
+
+.btn-fold,
+.btn-call {
+  padding: 12px 32px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border: 1px solid transparent;
+  transition: opacity 0.15s;
+}
+
+.btn-fold {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.btn-fold:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-call {
+  background: rgba(200, 32, 0, 0.75);
+  color: #fff;
+  border-color: rgba(200, 32, 0, 0.9);
+}
+
+.btn-call:hover:not(:disabled) {
+  background: rgba(200, 32, 0, 0.9);
+}
+
+.btn-fold:disabled,
+.btn-call:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── New Hand / Next Hand button ── */
 .new-hand-btn {
   padding: 10px 28px;
   background: rgba(200, 32, 0, 0.15);
-  color: rgba(255, 255, 255, 0.3);
-  border: 1px solid rgba(200, 32, 0, 0.3);
+  color: #ff6040;
+  border: 1px solid rgba(200, 32, 0, 0.4);
   border-radius: 6px;
   font-size: 0.9rem;
   letter-spacing: 0.05em;
+  transition: background 0.15s;
+}
+
+.new-hand-btn:hover:not(:disabled) {
+  background: rgba(200, 32, 0, 0.25);
+}
+
+.new-hand-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Feedback ── */
+.feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 32px;
+  border-radius: 8px;
+  max-width: 480px;
+  width: 100%;
+  border: 1px solid transparent;
+}
+
+.feedback.correct {
+  background: rgba(0, 160, 64, 0.08);
+  border-color: rgba(0, 160, 64, 0.3);
+}
+
+.feedback.incorrect {
+  background: rgba(200, 32, 0, 0.08);
+  border-color: rgba(200, 32, 0, 0.3);
+}
+
+.feedback-street {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.feedback-verdict {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.feedback.correct .feedback-verdict {
+  color: #4caf50;
+}
+
+.feedback.incorrect .feedback-verdict {
+  color: #ff6040;
+}
+
+.feedback-lines {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.feedback-lines li {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.5;
+  padding-left: 12px;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ── Error ── */
+.trainer-error {
+  font-size: 0.85rem;
+  color: #ff6040;
 }

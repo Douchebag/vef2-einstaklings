@@ -2,12 +2,15 @@ export interface Scenario {
   id: number;
   holeCards: string[];
   flop: string[];
+  turn: string;
   pot: number;
   bet: number;
+  turnBet: number;
 }
 
 export interface AttemptResult {
   id: number;
+  street: "flop" | "turn";
   decision: "fold" | "call";
   estimatedEq: number;
   requiredEq: number;

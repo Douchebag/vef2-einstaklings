@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { TrainerPanel } from "./components/TrainerPanel";
+import { InfoBox } from "./components/InfoBox";
 import "./App.css";
 
 type Tab = "trainer" | "stats";
@@ -24,7 +25,12 @@ export function App() {
         </nav>
       </header>
 
-      {tab === "trainer" && <TrainerPanel />}
+      {tab === "trainer" && (
+        <div className="trainer-layout">
+          <InfoBox />
+          <TrainerPanel />
+        </div>
+      )}
 
       {tab === "stats" && (
         <main className="stats-placeholder">
