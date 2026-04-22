@@ -4,6 +4,8 @@ import app from "./app.ts";
 
 app.use("/*", serveStatic({ root: "./frontend/dist" }));
 
-serve({ fetch: app.fetch, port: 3001 }, (info) => {
+const port = Number(process.env["PORT"] || 3001);
+
+serve({ fetch: app.fetch, port }, (info) => {
   console.log(`Poker trainer running on http://localhost:${info.port}`);
 });

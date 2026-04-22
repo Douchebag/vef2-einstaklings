@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "nodemon --exec tsx src/index.ts",
+    "build": "cd frontend && npm install && npm run build && cd .. && npx prisma generate",
     "start": "tsx src/index.ts",
     "lint": "eslint src",
     "test": "node --import=tsx --test src/poker/deck.test.ts src/poker/monteCarlo.test.ts"
